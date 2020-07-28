@@ -11,7 +11,7 @@
     <div class="calculator"> 
         <input type="text" id="screen" disabled>
         <br>
-        <button>On</button>
+        <button onclick="backSpaceBtn()"><</button>
         <button>M+</button>
         <button>M-</button>
         <button onclick="numberClick(this.innerText)">/</button>
@@ -45,26 +45,10 @@
       
         // Number Input
         function numberClick(clickNumber){ 
-            
-           
-            // if(clickNumber == '+'){
-            //     inputValue = '+';
-            // }
-            // if(clickNumber == '-'){
-            //     inputValue = "-";
-            // }
-            // if(clickNumber == '/'){
-            //     inputValue = "/";
-            // }
-            // if(clickNumber == '*'){
-            //     inputValue = "*";
-            // }
-            // if(clickNumber == '.'){ 
-            //     inputValue = '.'
-            // }
+
             let inputNumber = clickNumber;
-            let inputValue = inputNumber;
-            document.getElementById('screen').value += inputValue;
+
+            document.getElementById('screen').value += inputNumber;
        
         };
 
@@ -80,6 +64,13 @@
         //Number Clear
         function clearNumber(){ 
             document.getElementById('screen').value = '';
+        };
+        // BackSpace Button
+        function backSpaceBtn(){ 
+
+            let displayNumber = document.getElementById("screen");
+            let displayValue = displayNumber.value;
+            document.getElementById("screen").value = displayValue.substr(0, displayValue.length - 1);
         };
     </script>
 </body>
